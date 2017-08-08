@@ -2,7 +2,7 @@ import { appStyles } from '../../config/style';
 
 export default {
    button: {
-      ...appStyles.centered,
+      ...appStyles.centeredContent,
       flexDirection:   'row',
       backgroundColor: '#33951d'
    }

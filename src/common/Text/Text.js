@@ -8,7 +8,7 @@ const BaseText = (props, defaultStyle) => {
    let finalStyle = [ defaultStyle ];
 
    if (centered) {
-      finalStyle.push(appStyles.centered);
+      finalStyle.push(appStyles.centeredText);
    }
 
    if (style && style.length) {
