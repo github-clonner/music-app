@@ -1,0 +1,26 @@
+{
+	"name": "MusicApp",
+	"version": "1.0.0",
+	"private": true,
+	"engines": {
+		"node": "6.11.0"
+	},
+	"scripts": {
+		"react-native": "./node_modules/react-native-cli/index.js",
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"android:run": "npm run react-native run-android"
+	},
+	"dependencies": {
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.47.1"
+	},
+	"devDependencies": {
+		"babel-preset-react-native": "2.1.0",
+		"react-native-cli": "^2.0.1"
+	},
+	"repository": "https://github.com/antonkulyk/music-app",
+	"author": {
+		"email": "kuliks.anton@gmail.com",
+		"name": "Anton Kulyk"
+	}
+}
