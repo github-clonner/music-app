@@ -16,7 +16,15 @@ export const appStyles = {
       flex: 1,
       backgroundColor: theme.app.bgColor
    },
-   centered: {
+   container: {
+      padding: 40
+   },
+   centeredText: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center'
+   },
+   centeredContent: {
       alignItems: 'center',
       justifyContent: 'center'
    },

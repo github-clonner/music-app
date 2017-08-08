@@ -11,7 +11,7 @@ const BaseText = (props, defaultStyle) => {
       finalStyle.push(appStyles.centeredText);
    }
 
-   if (style && style.length) {
+   if (style) {
       finalStyle.push(style);
    }
 
