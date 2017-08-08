@@ -2,7 +2,7 @@ const initState = {
     artists: []
 };
 
-export const artistsReducer = (state = initState, action) => {
+export default (state = initState, action) => {
     switch (action.type) {
         default:
             return state;

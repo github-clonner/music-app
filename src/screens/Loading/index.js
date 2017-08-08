@@ -1,1 +1,1 @@
-
+export { LoadingScreen } from './Loading';

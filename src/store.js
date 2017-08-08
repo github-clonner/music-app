@@ -16,7 +16,7 @@ if (global.__DEV__) {
     );
 
     if (module.hot) {
-        module.hot.accept(() => { store.replaceReducer(require('../reducers').default); });
+        module.hot.accept(() => { store.replaceReducer(require('./reducers').default); });
     }
 } else {
     store = createStore(

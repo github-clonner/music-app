@@ -1,0 +1,1 @@
+export { ArtistsScreen } from './Artists';

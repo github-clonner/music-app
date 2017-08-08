@@ -18,8 +18,7 @@ export const appStyles = {
    },
    centered: {
       alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center'
+      justifyContent: 'center'
    },
    header: {
       fontSize: fontSizes.fontXXXL,

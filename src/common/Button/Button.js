@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-import { Touchable } from '../index';
+import { Touchable, Text } from '../index';
 
 export const Button = ({ color, text, onPress }) => {
    const style = { ...styles.button, backgroundColor: color || styles.button.backgroundColor };
@@ -10,7 +10,7 @@ export const Button = ({ color, text, onPress }) => {
    return (
        <Touchable onPress={onPress}>
           <View style={style}>
-             {text}
+             <Text.Default>{text}</Text.Default>
           </View>
        </Touchable>
    );

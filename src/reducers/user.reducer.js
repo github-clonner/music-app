@@ -2,7 +2,7 @@ const initState = {
     currentUser: null
 };
 
-export const userReducer = (state = initState, action) => {
+export default (state = initState, action) => {
     switch (action.type) {
         case 'auth/LOGIN':
             return {

@@ -6,6 +6,7 @@
     "node": "6.11.0"
   },
   "scripts": {
+    "postinstall": "remotedev-debugger",
     "react-native": "./node_modules/react-native-cli/index.js",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android:run": "npm run react-native run-android"
@@ -15,6 +16,7 @@
     "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.12",
     "react-native": "0.47.1",
+    "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.5",
     "react-timeout": "^1.0.1",
     "recompose": "^0.24.0",

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { userReducer as user } from './user.reducer';
-import { artistsReducer as artists } from './artists.reducer';
+import nav from './nav.reducer';
+import user from './user.reducer';
+import artists from './artists.reducer';
 
-export default combineReducers(
-    user,
-    artists
-);
+export default combineReducers({
+   nav,
+   user,
+   artists
+});
