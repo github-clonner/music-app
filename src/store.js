@@ -3,12 +3,12 @@ import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'remote-redux-devtools';
 
 import reducers from './reducers';
-
-import { authSaga } from './actions/user';
+import appSaga from './actions/sagas';
 
 let store;
-const sagas = createSagaMiddleware();
-const middlewares = [sagas];
+
+const sagaMiddleware = createSagaMiddleware();
+const middlewares = [ sagaMiddleware ];
 
 if (global.__DEV__) {
     store = createStore(
@@ -32,6 +32,6 @@ if (global.__DEV__) {
     );
 }
 
-sagas.run(authSaga);
+sagaMiddleware.run(appSaga);
 
 export { store };

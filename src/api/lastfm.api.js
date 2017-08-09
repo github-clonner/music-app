@@ -5,7 +5,7 @@ export class LastFmApi {
         this._apiKey= apiKey;
     }
 
-    getArtists({ artist = 'the', page, limit }) {
+    getArtists = ({ artist = 'the', page, limit }) => {
         let requestUrl = `${this._host}/?method=artist.search&api_key=${this._apiKey}&artist=${artist}&format=json`;
 
         page = !!page ? `&page=${page}` : '';
@@ -13,6 +13,6 @@ export class LastFmApi {
 
         requestUrl = requestUrl + page + limit;
 
-        return this._http.get(requestUrl);
+        return this._http.get(requestUrl).then(response => response.data.results.artistmatches.artist);
     }
 }

@@ -46,7 +46,7 @@ class Login extends React.Component {
             if (!isValid.password(this.credentials.password)) {
                 this.setState({ error: 'Invalid password' });
                 return;
-            };
+            }
 
             this.setState({ signingIn: true });
             this.props.dispatch(login(this.credentials));

@@ -1,9 +1,9 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 import { authApi } from '../../api';
 
-export function* authSaga() {
-    yield takeLatest('auth/LOGIN', loginUser);
-}
+const authSaga = [
+    takeLatest('auth/LOGIN', loginUser)
+];
 
 // Action Creators
 
@@ -27,3 +27,5 @@ function* loginUser(loginAction) {
         yield put({ type: 'auth/LOGIN_ERROR', error: e.message });
     }
 }
+
+export default authSaga;
