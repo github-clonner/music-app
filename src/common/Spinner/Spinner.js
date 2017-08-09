@@ -1,5 +1,6 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 
@@ -11,3 +12,8 @@ export const Spinner = ({ color, centered }) => (
                        color={color}
                        style={ centered ? styles.centered : defaultStyle }/>
 );
+
+Spinner.propTypes = {
+    color: PropTypes.string,
+    centered: PropTypes.boolean
+};

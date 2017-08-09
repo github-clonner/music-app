@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 import { Touchable, Text } from '../index';
@@ -21,4 +22,11 @@ export const Button = ({ color, text, centered, onPress }) => {
           </View>
        </Touchable>
    );
+};
+
+Button.propTypes = {
+    color: PropTypes.string,
+    text: PropTypes.string,
+    centered: PropTypes.boolean,
+    onPress: PropTypes.func.isRequired
 };

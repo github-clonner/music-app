@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 import {
     Button,
     Input,
@@ -78,6 +79,11 @@ class Login extends React.Component {
         );
     }
 }
+
+Login.propTypes = {
+    currentUser: PropTypes.object,
+    error: PropTypes.string
+};
 
 export const LoginScreen = connect(state => ({
     currentUser: state.user.currentUser,
