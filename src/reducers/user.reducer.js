@@ -1,5 +1,6 @@
 const initState = {
-    currentUser: null
+    currentUser: null,
+    error: null
 };
 
 export default (state = initState, action) => {
@@ -7,7 +8,19 @@ export default (state = initState, action) => {
         case 'auth/LOGIN':
             return {
                 ...state,
+                error: null
+            };
+
+        case 'auth/LOGIN_SUCCESS':
+            return {
+                ...state,
                 currentUser: action.user
+            };
+
+        case 'auth/LOGIN_ERROR':
+            return {
+                ...state,
+                error: action.error
             };
 
         case 'auth/LOGOUT':

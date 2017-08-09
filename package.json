@@ -7,9 +7,8 @@
   },
   "scripts": {
     "postinstall": "remotedev-debugger",
-    "react-native": "./node_modules/react-native-cli/index.js",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "android:run": "npm run react-native run-android"
+    "android:run": "react-native run-android"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -25,8 +24,7 @@
     "redux-saga": "^0.15.6"
   },
   "devDependencies": {
-    "babel-preset-react-native": "2.1.0",
-    "react-native-cli": "^2.0.1",
+    "babel-preset-react-native": "2.0.0",
     "remote-redux-devtools": "^0.5.12",
     "remote-redux-devtools-on-debugger": "^0.8.2"
   },
