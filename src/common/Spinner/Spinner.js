@@ -15,5 +15,5 @@ export const Spinner = ({ color, centered }) => (
 
 Spinner.propTypes = {
     color: PropTypes.string,
-    centered: PropTypes.boolean
+    centered: PropTypes.oneOfType([ PropTypes.func, PropTypes.boolean ])
 };

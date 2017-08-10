@@ -3,27 +3,30 @@ import { InteractionManager } from 'react-native';
 import PropTypes from 'prop-types';
 import {
     Page,
-    Text
+    Spinner
 } from '../../common';
+import { ArtistsList } from './ArtistsList';
+
 import { getArtists } from '../../actions/artists';
 import { connect } from 'react-redux';
 
 class Artists extends React.Component {
-    pagination = {
-        limit: 10,
-        page: 1
-    };
-
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
-            this.props.dispatch(getArtists(this.pagination));
+            this.props.dispatch(getArtists());
         });
     }
 
     render() {
+        const { artists } = this.props;
+
         return (
             <Page>
-                <Text.Default>{'Artists Page'}</Text.Default>
+                {
+                    artists.length
+                        ? <ArtistsList artists={artists}/>
+                        : <Spinner centered/>
+                }
             </Page>
         );
     }

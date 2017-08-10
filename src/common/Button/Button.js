@@ -27,6 +27,6 @@ export const Button = ({ color, text, centered, onPress }) => {
 Button.propTypes = {
     color: PropTypes.string,
     text: PropTypes.string,
-    centered: PropTypes.boolean,
+    centered: PropTypes.oneOfType([ PropTypes.func, PropTypes.boolean ]),
     onPress: PropTypes.func.isRequired
 };

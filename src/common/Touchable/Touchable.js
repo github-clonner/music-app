@@ -10,6 +10,5 @@ export const Touchable = ReactTimeout(({ onPress, children, requestAnimationFram
 });
 
 Touchable.propTypes = {
-    onPress: PropTypes.func.isRequired,
-    requestAnimationFrame: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired
 };

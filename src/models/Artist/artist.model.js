@@ -3,5 +3,5 @@ export const Artist = rawArtist => ({
     name: rawArtist.name,
     url: rawArtist.url,
     listeners: rawArtist.listeners,
-    images: rawArtist.image.find(image => image.size === 'medium')['#text']
+    image: rawArtist.image.find(image => image.size === 'mega')['#text']
 });

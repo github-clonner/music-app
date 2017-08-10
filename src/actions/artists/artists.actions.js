@@ -8,7 +8,7 @@ const artistsSaga = [
 
 // Actions Creators
 
-export const getArtists = ({ limit = 10, page = 1 }) => ({
+export const getArtists = ({ limit = 10, page = 1 } = {}) => ({
     type: 'artists/GET_ARTISTS',
     query: {
         limit: limit,
@@ -22,8 +22,6 @@ function* fetchArtists(action) {
     try {
         let artists = yield call(musicApi.getArtists, action.query);
             artists = artists.map(artist => Artist(artist));
-
-        console.log(artists);
 
         yield put({ type: 'artists/GET_ARTISTS_SUCCESS', artists: artists });
     } catch (e) {
