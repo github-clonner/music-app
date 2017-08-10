@@ -3,6 +3,9 @@
 React Native application listing music bands. Using [last.fm REST API](https://www.last.fm/api/rest).
 
 ### Installation
+
+Perhaps you gonna need [facebook/watchman](https://facebook.github.io/watchman/docs/install.html).
+
 #### Android
 1. `git clone https://github.com/antonkulyk/music-app.git`
 2. `cd ./music-app`
