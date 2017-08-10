@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 import {
     Button,
@@ -34,6 +34,7 @@ class Login extends React.Component {
         }
 
         if (!!newProps.currentUser) {
+            Keyboard.dismiss();
             this.props.dispatch(Routing.goToArtistsList());
         }
     }
