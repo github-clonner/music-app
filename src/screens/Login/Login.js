@@ -28,6 +28,12 @@ class Login extends React.Component {
         password: ''
     };
 
+    componentDidMount() {
+        if (!!this.props.currentUser) {
+            this.props.dispatch(Routing.goToArtistsList());
+        }
+    }
+
     componentWillReceiveProps(newProps) {
         if (!!newProps.error) {
             this.setState({ signingIn: false, error: newProps.error });
