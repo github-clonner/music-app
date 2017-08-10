@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import {
     Page,
     Spinner,
-    Button
+    Button,
+    Text
 } from '../../common';
 import { ArtistsList } from './ArtistsList';
 
@@ -26,12 +27,14 @@ class Artists extends React.Component {
     };
 
     render() {
-        const { artists } = this.props;
+        const { artists, currentUser } = this.props;
 
         return (
             <Page>
                 <View style={styles.header}>
+                    { currentUser && <Text.Default centered>{`Signed in as ${currentUser.firstName} ${currentUser.lastName}`}</Text.Default> }
                     <Button text={'Logout'} centered
+                            style={styles.logoutButton}
                             onPress={this.onLogoutPressed} />
                 </View>
                 {
@@ -45,9 +48,11 @@ class Artists extends React.Component {
 }
 
 Artists.propTypes = {
-    artists: PropTypes.arrayOf(PropTypes.object).isRequired
+    artists: PropTypes.arrayOf(PropTypes.object).isRequired,
+    currentUser: PropTypes.object
 };
 
 export const ArtistsScreen = connect(state => ({
-    artists: state.artists.artists
+    artists: state.artists.artists,
+    currentUser: state.user.currentUser
 }))(Artists);
