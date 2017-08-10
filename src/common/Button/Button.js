@@ -5,19 +5,19 @@ import styles from './styles';
 
 import { Touchable, Text } from '../index';
 
-export const Button = ({ color, text, centered, onPress }) => {
-   const style = {
-      ...styles.button,
-      backgroundColor: color || styles.button.backgroundColor
+export const Button = ({ style, text, centered, onPress }) => {
+   const finalStyle = {
+       ...styles.button,
+       ...style
    };
 
    if (centered) {
-      style.alignSelf = 'center';
+      finalStyle.alignSelf = 'center';
    }
 
    return (
        <Touchable onPress={onPress}>
-          <View style={style}>
+          <View style={finalStyle}>
              <Text.Default style={styles.text}>{text}</Text.Default>
           </View>
        </Touchable>

@@ -11,6 +11,6 @@ export const Input = props => {
    }
 
    return <TextInput style={finalStyle}
-                     underlineColorAndroid={"rgba(0,0,0,0)"}
+                     underlineColorAndroid={'rgba(0,0,0,0)'}
                      {...props} />
 };

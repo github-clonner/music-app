@@ -11,6 +11,10 @@ const BaseText = (props, defaultStyle) => {
       finalStyle.push(appStyles.centeredText);
    }
 
+   if (props.bold) {
+      finalStyle.fontWeight = 'bold';
+   }
+
    if (style) {
       finalStyle.push(style);
    }

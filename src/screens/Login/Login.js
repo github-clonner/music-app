@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Keyboard } from 'react-native';
+import { View, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import {
     Button,
@@ -58,16 +58,30 @@ class Login extends React.Component {
             }
 
             this.setState({ signingIn: true });
-            this.props.dispatch(login(this.credentials));
+            this.props.dispatch(login({
+                email: this.credentials.email.trim(),
+                password: this.credentials.password
+            }));
         }
     };
 
     onEmailChange = email => {
-        this.credentials.email = email;
+        this.credentials.email = email.toLowerCase();
     };
 
     onPasswordChange = password => {
         this.credentials.password = password;
+    };
+
+    showHelpPopup = () => {
+        Alert.alert(
+            'Login',
+            'I should not say, but...\n\n'+
+            'Email: ozzy@blacksabbath.com\n'+
+            'Password: Paranoid',
+            [ { text: 'Oh, thanks!', type: 'cancel' } ],
+            { cancelable: true }
+        );
     };
 
     render() {
@@ -75,14 +89,22 @@ class Login extends React.Component {
 
         return (
             <Page style={appStyles.container}>
-                { signingIn && <Spinner centered/> }
-                <Text.Header centered>{'Music App'}</Text.Header>
+                { signingIn && <Spinner /> }
+                <Text.Header centered>{'last.fm / Artists List'}</Text.Header>
                 <View style={styles.form}>
-                    <Input placeholder={'Email'} onChangeText={this.onEmailChange} />
-                    <Input placeholder={'Password'} onChangeText={this.onPasswordChange} />
+                    <Input placeholder={'Email'}
+                           keyboardType={'email-address'}
+                           onChangeText={this.onEmailChange} />
+                    <Input placeholder={'Password'}
+                           keyaboardType={'password'}
+                           secureTextEntry
+                           onChangeText={this.onPasswordChange} />
                 </View>
                 { error && <ErrorMessage style={styles.error}><Text.Default>{error}</Text.Default></ErrorMessage> }
                 <Button text={'Login'} centered onPress={this.onLoginPressed} />
+                <Button text={'Help'} centered
+                        onPress={this.showHelpPopup}
+                        style={styles.helpButton}/>
             </Page>
         );
     }
