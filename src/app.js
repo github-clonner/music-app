@@ -1,16 +1,31 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
-import { store } from './store';
+import { store, restoreReduxStore } from './store';
+import { LoadingScreen } from './screens';
 import AppWithRouter from './router';
 
 class MusicApp extends React.Component {
+    state = {
+        loading: true
+    };
+
+    componentWillMount() {
+        restoreReduxStore(store, () => {
+            this.setState({ loading: false });
+        });
+    }
+
     render() {
-        return (
-            <Provider store={store}>
-                <AppWithRouter />
-            </Provider>
-        );
+        if (this.state.loading) {
+            return <LoadingScreen />
+        } else {
+            return (
+                <Provider store={store}>
+                    <AppWithRouter />
+                </Provider>
+            );
+        }
     }
 }
 

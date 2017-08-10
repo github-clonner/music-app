@@ -1,5 +1,6 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { autoRehydrate, persistStore } from 'redux-persist';
 import { composeWithDevTools } from 'remote-redux-devtools';
 
 import reducers from './reducers';
@@ -15,7 +16,8 @@ if (global.__DEV__) {
         reducers,
         undefined,
         composeWithDevTools(
-            applyMiddleware(...middlewares)
+            applyMiddleware(...middlewares),
+            autoRehydrate({ log: true })
         )
     );
 
@@ -27,11 +29,20 @@ if (global.__DEV__) {
         reducers,
         undefined,
         compose(
-            applyMiddleware(...middlewares)
+            applyMiddleware(...middlewares),
+            autoRehydrate()
         )
     );
 }
 
-sagaMiddleware.run(appSaga);
+const restoreReduxStore = (restoringStore, onRestore) => {
+    persistStore(restoringStore, {
+        storage: require('react-native').AsyncStorage,
+        blacklist: 'nav'
+    }, () => {
+        sagaMiddleware.run(appSaga);
+        onRestore(...arguments);
+    });
+};
 
-export { store };
+export { store, restoreReduxStore };

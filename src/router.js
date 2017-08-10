@@ -9,7 +9,6 @@ const navBarHidden = navigation => ({
 });
 
 export const Navigator = StackNavigator({
-    Loading: { screen: Screens.LoadingScreen, navigationOptions: navBarHidden },
     Login: { screen: Screens.LoginScreen, navigationOptions: navBarHidden },
     Artists: { screen: Screens.ArtistsScreen, navigationOptions: navBarHidden }
 });
