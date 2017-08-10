@@ -1,5 +1,6 @@
 export { Button } from './Button';
 export { Divider } from './Divider';
+export { ErrorMessage } from './ErrorMessage';
 export { Page } from './Page';
 export { Spinner } from './Spinner';
 export { Touchable } from './Touchable';

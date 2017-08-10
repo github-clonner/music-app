@@ -6,7 +6,8 @@ import {
     Input,
     Page,
     Text,
-    Spinner
+    Spinner,
+    ErrorMessage
 } from '../../common';
 import { connect } from 'react-redux';
 import { login } from '../../actions/user';
@@ -73,7 +74,7 @@ class Login extends React.Component {
                     <Input placeholder={'Email'} onChangeText={this.onEmailChange} />
                     <Input placeholder={'Password'} onChangeText={this.onPasswordChange} />
                 </View>
-                { error && <Text.Default centered>{error}</Text.Default> }
+                { error && <ErrorMessage style={styles.error}><Text.Default>{error}</Text.Default></ErrorMessage> }
                 <Button text={'Login'} centered onPress={this.onLoginPressed} />
             </Page>
         );
