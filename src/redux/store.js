@@ -3,8 +3,8 @@ import createSagaMiddleware from 'redux-saga';
 import { autoRehydrate, persistStore } from 'redux-persist';
 import { composeWithDevTools } from 'remote-redux-devtools';
 
-import reducers from './reducers';
-import appSaga from './actions/sagas';
+import reducers from './reducers/index';
+import appSaga from './sagas';
 
 let store;
 
@@ -22,7 +22,7 @@ if (global.__DEV__) {
     );
 
     if (module.hot) {
-        module.hot.accept(() => { store.replaceReducer(require('./reducers').default); });
+        module.hot.accept(() => { store.replaceReducer(require('./reducers/index').default); });
     }
 } else {
     store = createStore(

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
-import { store, restoreReduxStore } from './store';
+import { store, restoreReduxStore } from './redux/store';
 import { LoadingScreen } from './screens';
 import AppWithRouter from './router';
 

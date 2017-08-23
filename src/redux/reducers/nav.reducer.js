@@ -1,5 +1,5 @@
 import { NavigationActions } from 'react-navigation';
-import { Navigator } from '../router';
+import { Navigator } from '../../router';
 
 const initState = Navigator.router.getStateForAction(
     Navigator.router.getActionForPathAndParams('Login')

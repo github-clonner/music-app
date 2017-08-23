@@ -1,3 +1,5 @@
+import { userActions } from '../actions/user';
+
 const initState = {
     currentUser: null,
     error: null
@@ -5,25 +7,25 @@ const initState = {
 
 export default (state = initState, action) => {
     switch (action.type) {
-        case 'auth/LOGIN':
+        case userActions.LOGIN:
             return {
                 ...state,
                 error: null
             };
 
-        case 'auth/LOGIN_SUCCESS':
+        case userActions.LOGIN_SUCCESS:
             return {
                 ...state,
                 currentUser: action.user
             };
 
-        case 'auth/LOGIN_ERROR':
+        case userActions.LOGIN_ERROR:
             return {
                 ...state,
                 error: action.error
             };
 
-        case 'auth/LOGOUT':
+        case userActions.LOGOUT:
             return {
                 ...state,
                 currentUser: null

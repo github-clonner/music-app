@@ -1,21 +1,14 @@
 import React from 'react';
 import { InteractionManager, View } from 'react-native';
 import PropTypes from 'prop-types';
-import {
-    Page,
-    Spinner,
-    Button,
-    Text
-} from '../../common';
-import { ArtistsList } from './ArtistsList';
 
-import { getArtists } from '../../actions/artists';
-import { logout } from '../../actions/user';
+import { getArtists } from '../../redux/actions/artists';
+import { logout } from '../../redux/actions/user';
 import { connect } from 'react-redux';
 
-import styles from './styles';
+import { ArtistsPresentation } from './ArtistsPresentation';
 
-class Artists extends React.Component {
+class ArtistsContainer extends React.Component {
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
             this.props.dispatch(getArtists());
@@ -27,22 +20,9 @@ class Artists extends React.Component {
     };
 
     render() {
-        const { artists, currentUser } = this.props;
-
         return (
-            <Page>
-                <View style={styles.header}>
-                    { currentUser && <Text.Default centered>{`Signed in as ${currentUser.firstName} ${currentUser.lastName}`}</Text.Default> }
-                    <Button text={'Logout'} centered
-                            style={styles.logoutButton}
-                            onPress={this.onLogoutPressed} />
-                </View>
-                {
-                    artists.length
-                        ? <ArtistsList artists={artists}/>
-                        : <Spinner centered/>
-                }
-            </Page>
+            <ArtistsPresentation artists={this.props.artists}
+                                 currentUser={this.props.currentUser} />
         );
     }
 }
@@ -52,7 +32,12 @@ Artists.propTypes = {
     currentUser: PropTypes.object
 };
 
+Artists.defaultProps = {
+    artists: [],
+    currentUser: null
+};
+
 export const ArtistsScreen = connect(state => ({
     artists: state.artists.artists,
     currentUser: state.user.currentUser
-}))(Artists);
+}))(ArtistsContainer);
